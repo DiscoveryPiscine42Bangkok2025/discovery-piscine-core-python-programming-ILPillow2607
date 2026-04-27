@@ -1,22 +1,19 @@
 def checkmate(board):
     try:
-        #handle non-string input
+        
         if not isinstance(board, str):
             return
 
-        #Split into rows, strip whitespace, remove empty lines
         rows = [row.strip() for row in board.strip().split("\n") if row.strip()]
         if not rows:
             return
 
         size = len(rows)
 
-        #must be square board
         for row in rows:
             if len(row) != size:
                 return
 
-        #find king on board
         king_pos = None
         king_count = 0
 
@@ -26,7 +23,6 @@ def checkmate(board):
                     king_pos = (r, c)
                     king_count += 1
 
-        #there can only be one king
         if king_count != 1:
             return
 
